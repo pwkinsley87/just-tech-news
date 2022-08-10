@@ -11,3 +11,5 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
 });
 
 module.exports = sequelize;
+
+// TEST //
