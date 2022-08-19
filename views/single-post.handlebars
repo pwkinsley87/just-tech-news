@@ -9,9 +9,9 @@
         |
         <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
     </div>
-</article>
-{{#if loggedIn}}
-<form class="comment-form">
+
+    {{#if loggedIn}}
+    <form class="comment-form">
     <div>
         <textarea name="comment-body"></textarea>
     </div>
@@ -20,12 +20,27 @@
         <button type="submit">Add Comment</button>
         <button type="button" class="upvote-btn"></button>
     </div>
+    </form>
+    {{/if}}
+
+    {{> comments post.comments }}
+    
+</article>
+
+<form class="comment-form">
+    <div>
+        <textarea name="comment-body"></textarea>
+    </div>
+
+    <div>
+        <button type="submit">Add Comment</button>
+        <button type="button" class="upvote-btn">Upvote</button>
+    </div>
 </form>
-{{/if}}
 
 <div class="comments">
     {{#each post.comments}}
-    <section class="comment">
+    <section class="comments">
         <div class="meta">
             {{user.username}} on {{created_at}}
         </div>
@@ -35,6 +50,8 @@
     </section>
     {{/each}}
 </div>
+
+
 
 
 {{#if loggedIn}}
